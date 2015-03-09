@@ -14,16 +14,16 @@
 <script>try{Typekit.load();}catch(e){}</script>
 <!-- end typekit -->
 
-<link rel="stylesheet" href="./assets/stylesheets/unsemantic-grid-base.css" />
-<link rel="stylesheet" href="./assets/stylesheets/normalize.css" />
-<link rel="stylesheet" href="./assets/stylesheets/main.css" />
+<link rel="stylesheet" href="/static/assets/stylesheets/unsemantic-grid-base.css" />
+<link rel="stylesheet" href="/static/assets/stylesheets/normalize.css" />
+<link rel="stylesheet" href="/static/assets/stylesheets/main.css" />
 
 <noscript>
-  <link rel="stylesheet" href="./assets/stylesheets/unsemantic-grid-mobile.css" />
+  <link rel="stylesheet" href="static/assets/stylesheets/unsemantic-grid-mobile.css" />
 </noscript>
 <script>
   var ADAPT_CONFIG = {
-    path: './assets/stylesheets/',
+    path: 'static/assets/stylesheets/',
     dynamic: true,
     range: [
       '0 to 767px = unsemantic-grid-mobile.css',
@@ -31,12 +31,13 @@
     ]
   };
 </script>
-<script src="./assets/javascripts/adapt.min.js"></script>
+<script src="static/assets/javascripts/adapt.min.js"></script>
 </head>
 <body>
   <div class="grid-container">
     <div id="nav" class="grid-90 prefix-5">
-      <img id="logo" width="100px" src="portrait.png"/>
+      
+      <img id="logo" width="15%" src="static/img/logo.png"/>
 
       <ul>
         <li><a href="#work">How it Works</a></li>
@@ -64,6 +65,10 @@
       <p>Using our cloud-based network management platform, engineers can rapidly test new
 ideas and directly deploy them to automate the production network.</p>
 
+    <p>
+      <img src="static/img/diagram.png" alt="Waltz facilitates self-managing networks"/>
+    </p>
+
 <p>We find better and easier ways to connect everyone on today's complex and rapidly
 changing networks.</p>
     </div>
@@ -75,53 +80,63 @@ changing networks.</p>
           <h3>Our Team</h3>
           
           <div class="bio grid-33">
-          <img src="img/Nithin.png"><h4>Nithin Micheal</h4>
+            <div class="bio-inner">
+          <img src="static/img/Nithin.png"><h4>Nithin Micheal</h4>
           <p>Nithin received his Ph.D. in Electrical and Computer Engineering with a minor in Computer Science from Cornell University, where he was also a Jacobs Fellow.  His dissertation at Cornell solved a long standing, open problem in routing which forms the basis of Waltz's advanced TE algorithms.  He previously worked at Viking Global Investors and Siemens.</p>
+        </div>
           </div>
 
           <div class="bio grid-33">
-          <img src="img/Kevin.png"><h4>Kevin Tang</h4>
+                        <div class="bio-inner">
+
+          <img src="static/img/Kevin.png"><h4>Kevin Tang</h4>
           <p>Kevin is an Associate Professor in the School of Electrical and Computer Engineering at Cornell University where he conducts research on control and optimization of information networks.  He has received numerous awards including the 2006 George B. Dantzig Dissertation Award from INFORMS, the 2007 Charles Wilts Dissertation Prize from Caltech EE, and the Presidential Early Career Awards for Scientists and Engineers from the White House in 2012.</p>
-          </div>
+          </div></div>
 
           <div class="bio grid-33">
-          <img src="img/Saketh.jpg"><h4>Saketh Are</h4>
+          <div class="bio-inner">
+          <img src="static/img/Saketh.jpg"><h4>Saketh Are</h4>
           <p>Saketh is currently at Cornell University working on his B.S. in mathematics and computer science.  Prior to joining Waltz, Saketh worked on software engineering at Google and Jane Street Capital.</p>
-          </div>
+          </div></div>
 
           <div class="clear"></div>
 
           <div class="bio grid-33">
-          <img src="img/Archit.jpg"><h4>Archit Baweja</h4>
+          <div class="bio-inner">
+                    <img src="static/img/Archit.jpg"><h4>Archit Baweja</h4>
           <p>Archit received his Masters in Computer Science from Drexel University.  He previously worked at Salesforce.com where he worked on building modern, customer focused, web-scale cloud powered web applications.</p>
-          </div>
+          </div></div>
 
           <div class="bio grid-33">
-          <img src="img/Han.png"><h4>Han Wang</h4>
+          <div class="bio-inner">
+                    <img src="static/img/Han.png"><h4>Han Wang</h4>
           <p>Han is a Ph.D. candidate in Computer Science from Cornell University.  His dissertation research is based on a ground up redesign of the network interface card for high precision network measurement.  While at VMWare, Han worked on NSX, the flagship networking solution for datacenters.</p>
-          </div>
+          </div></div>
 
           <div class="bio grid-33">
-          <img src="img/Ning.png"><h4>Ning Wu</h4>
+          <div class="bio-inner">
+                    <img src="static/img/Ning.png"><h4>Ning Wu</h4>
           <p>Ning is a Ph.D. student in Electrical and Computer Engineering at Cornell University, where she is also a Jacobs Fellow.  Her M.Eng. project evaluated and implemented HALO using NetFPGA hardware and won the best project award.</p>
-          </div>
+          </div></div>
 
           <div class="clear"></div>
 
           <div class="bio grid-33">
-          <img src="img/Vishal.jpg"><h4>Vishal Shrivastav</h4>
+          <div class="bio-inner">
+                    <img src="static/img/Vishal.jpg"><h4>Vishal Shrivastav</h4>
           <p>Vishal is a Ph.D. student in Computer Science at Cornell University.  He completed his undergraduate studies at Indian Institute of Technology (IIT), Kharagpur and graduated at the top of his class.  He previously worked at IBM India Research Lab, Bell Labs, and University of Toronto as an undergraduate research intern.</p>
-          </div>
+          </div></div>
 
           <div class="bio grid-33">
-          <img src="img/Mihail.png"><h4>Mihail Stoykov</h4>
+          <div class="bio-inner">
+                    <img src="static/img/Mihail.png"><h4>Mihail Stoykov</h4>
           <p>Mihail studied Business Administration at Drexel University.  Previously, he worked as website manager and team pro at PokerGuru, director of operations for a Bulgarian wholesale food distributor, and also part-time consultant for German and Bulgarian companies.</p>
-          </div>
+          </div></div>
   </div>
   </div>
 </div>
 
-    <div id="#contact">
+    <div id="contact">
       <div class="grid-container">
         <div class="grid-50 prefix-25">
           <h3>Get in Touch</h3>

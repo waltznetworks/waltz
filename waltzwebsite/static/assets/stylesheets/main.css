@@ -110,12 +110,13 @@ h3 {
     text-align: center;
     font-size: 3.4em;
     text-transform: uppercase;
+    color: #3F84BA;;
 }
 
 
 /* #nav bar */
 #nav {
-    background-color: orange;
+    margin: 5px 0;
 }
 
 ul {
@@ -125,7 +126,18 @@ ul {
 
 ul li {
     float: left;
-    padding: 0 10px;
+    padding: 0 15px;
+    text-transform: uppercase;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #3F84BA;;
+}
+
+ul li a:hover{
+    text-decoration: none;
+    color: #F26423;
 }
 
 #logo {
@@ -134,13 +146,61 @@ ul li {
 
 /* #header */
 #header {
+    background-image:url('../../img/header-right.png');
     background-color: #3F84BA;
+    background-position: right;
+    background-repeat: no-repeat;
+    min-height: 500px;
 }
+
+h1, h2 {
+    color: white;
+}
+
+h1 {
+    font-size: 3em;
+    line-height: 1.2em;
+}
+
+/* #work */
+#work p {
+    font-size: 1.3em;
+    text-align: center;
+    font-style: italic;
+}
+
+#work img {
+    width: 100%;
+}
+
 
 /* #team */
 #team {
     background-color: #3F84BA;
     color: white;
+}
+
+#team h3 {
+    color: white;
+}
+
+#team h4 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+#team p {
+    font-style: normal;
+    font-size: 1.1em;
+}
+
+.bio {
+    margin-bottom: 15px;
+}
+
+.bio-inner {
+    padding: 0px 10px;
 }
 
 .bio img {
@@ -150,6 +210,10 @@ ul li {
 }
 
 /* #contact */
+#contact p {
+    font-size: 1.2em;
+
+}
 input[type="text"],textarea {
     width: 100%;
     margin: 5px 0;
