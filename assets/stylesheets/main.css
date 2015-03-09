@@ -97,6 +97,11 @@ textarea {
 /* ==========================================================================
    custom styles
    ========================================================================== */
+h3 {
+    text-align: center;
+}
+
+
 
 /* #nav bar */
 #nav {
@@ -119,12 +124,26 @@ ul li {
 
 /* #header */
 #header {
-    background-color: blue;
+    background-color: #3F84BA;
 }
 
 /* #team */
 #team {
-    background-color: blue;
+    background-color: #3F84BA;
+    color: white;
+}
+
+.bio img {
+    max-width: 100px;
+    float:left;
+    padding-right: 20px;
+}
+
+/* #contact */
+hr {
+    border-color: #3F84BA;
+    margin-bottom: 10px;
+    border-width: 60px;
 }
 
 

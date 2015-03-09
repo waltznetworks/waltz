@@ -60,19 +60,91 @@ changing networks.</p>
   </div> <!-- end grid container -->
 
     <div id="team">
-<h3>Our Team</h3>
-<div class="bio"><img src="portrait.png"><h4>Nithin Micheal</h4><p>Nithin received his Ph.D. in Electrical and Computer Engineering with a minor in Computer Science from Cornell University, where he was also a Jacobs Fellow.  His dissertation at Cornell solved a long standing, open problem in routing which forms the basis of Waltz’s advanced TE algorithms. He previously worked at Viking Global Investors and Siemens.</p>
-    </div>
+      <div class="grid-container">
+        <div class="grid-90 prefix-5">
+
+          <h3>Our Team</h3>
+        <div class="bio grid-33">
+          <img src="portrait.png"><h4>Nithin Micheal</h4>
+          <p>Nithin received his Ph.D. in Electrical and Computer Engineering with a minor in Computer Science from Cornell University, where he was also a Jacobs Fellow.  His dissertation at Cornell solved a long standing, open problem in routing which forms the basis of Waltz’s advanced TE algorithms. He previously worked at Viking Global Investors and Siemens.</p>
+          </div>
+
+                  <div class="bio grid-33">
+          <img src="portrait.png"><h4>Nithin Micheal</h4>
+          <p>Nithin received his Ph.D. in Electrical and Computer Engineering with a minor in Computer Science from Cornell University, where he was also a Jacobs Fellow.  His dissertation at Cornell solved a long standing, open problem in routing which forms the basis of Waltz’s advanced TE algorithms. He previously worked at Viking Global Investors and Siemens.</p>
+          </div>
+
+                  <div class="bio grid-33">
+          <img src="portrait.png"><h4>Nithin Micheal</h4>
+          <p>Nithin received his Ph.D. in Electrical and Computer Engineering with a minor in Computer Science from Cornell University, where he was also a Jacobs Fellow.  His dissertation at Cornell solved a long standing, open problem in routing which forms the basis of Waltz’s advanced TE algorithms. He previously worked at Viking Global Investors and Siemens.</p>
+          </div>
+
+              <div class="bio grid-33">
+          <img src="portrait.png"><h4>Nithin Micheal</h4>
+          <p>Nithin received his Ph.D. in Electrical and Computer Engineering with a minor in Computer Science from Cornell University, where he was also a Jacobs Fellow.  His dissertation at Cornell solved a long standing, open problem in routing which forms the basis of Waltz’s advanced TE algorithms. He previously worked at Viking Global Investors and Siemens.</p>
+          </div>
+
+                  <div class="bio grid-33">
+          <img src="portrait.png"><h4>Nithin Micheal</h4>
+          <p>Nithin received his Ph.D. in Electrical and Computer Engineering with a minor in Computer Science from Cornell University, where he was also a Jacobs Fellow.  His dissertation at Cornell solved a long standing, open problem in routing which forms the basis of Waltz’s advanced TE algorithms. He previously worked at Viking Global Investors and Siemens.</p>
+          </div>
+
+          <div class="bio grid-33">
+          <img src="portrait.png"><h4>Nithin Micheal</h4>
+          <p>Nithin received his Ph.D. in Electrical and Computer Engineering with a minor in Computer Science from Cornell University, where he was also a Jacobs Fellow.  His dissertation at Cornell solved a long standing, open problem in routing which forms the basis of Waltz’s advanced TE algorithms. He previously worked at Viking Global Investors and Siemens.</p>
+          </div>
+
+          <div class="bio grid-33">
+          <img src="portrait.png"><h4>Nithin Micheal</h4>
+          <p>Nithin received his Ph.D. in Electrical and Computer Engineering with a minor in Computer Science from Cornell University, where he was also a Jacobs Fellow.  His dissertation at Cornell solved a long standing, open problem in routing which forms the basis of Waltz’s advanced TE algorithms. He previously worked at Viking Global Investors and Siemens.</p>
+          </div>
+  </div>
+  </div>
+</div>
 
     <div id="#contact">
-      <h3>Get in Touch</h3>
-      <p>If you would like to connect with Waltz, please send us a message using the form below.</p>
+      <div class="grid-container">
+        <div class="grid-60 prefix-20">
+          <h3>Get in Touch</h3>
+          <p>If you would like to connect with Waltz, please send us a message using the form below.</p>
+          <form id="waltzform">
+                  <div class="form-row">
+                    <input type="text" placeholder="Name" name="name" />
+                  </div>
+                  <div class="form-row">
+                    <input type="text" placeholder="Email" name="email" required />
+                  </div>
+                  <div class="form-row">
+                    <textarea placeholder="Message" name="other"></textarea>
+                  </div>
+                  <div class="form-row">
+                    <input type="submit" value="Go &raquo;" />
+                  </div>
+          </form>
+        </div>
+      </div>
     </div>
+<hr/>
 
-    <div class="grid-100 mobile-grid-100">
-    </div>
-  </div>
-  <script src="./assets/javascripts/jquery.js"></script>
-  <script src="./assets/javascripts/demo.js"></script>
+  <script type="text/javascript">
+  // this is the id of the form
+  $("#waltzform").submit(function() {
+      $.ajax({
+             type: "GET",
+             url: "/email",
+             data: $("#waltzform").serialize(), 
+             success: function(data)
+             { 
+              if (data.status == true) {
+                $("#waltzform").html('Thank you! We\'ll be in touch soon!');
+                return false;
+              }
+              alert('Opps, there was a problem! Please email info@waltznetworks.com directly.');
+             }
+             });
+      event.preventDefault()
+      return false;
+  });
+  </script>
 </body>
 </html>
