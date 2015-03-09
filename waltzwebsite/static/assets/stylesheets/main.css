@@ -150,7 +150,7 @@ ul li a:hover{
     background-color: #3F84BA;
     background-position: right;
     background-repeat: no-repeat;
-    min-height: 500px;
+    min-height: 700px;
 }
 
 h1, h2 {
@@ -158,8 +158,22 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 3em;
-    line-height: 1.2em;
+margin-top: 190px;
+font-size: 5em;
+line-height: 1.1em;
+margin-bottom: 10px;
+font-weight: 300;
+}
+
+#header hr {
+    border-color: white;
+border-width: 2px;
+width: 320px
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 1.7em;
 }
 
 /* #work */
