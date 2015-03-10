@@ -294,6 +294,14 @@ input[type="submit"]{
     font-size: 1.3em;
 }
 
+/* #bottomnav */
+#bottomnav {
+    background-color: #3F84BA;
+    color: white;
+    font-size: 1.2em;
+    padding: 24px
+}
+
 hr {
     border-color: #3F84BA;
     margin-bottom: 10px;
