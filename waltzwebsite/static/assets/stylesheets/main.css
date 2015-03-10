@@ -113,6 +113,10 @@ h3 {
     color: #3F84BA;;
 }
 
+.text {
+    text-align: center;
+}
+
 
 /* #nav bar */
 #nav {
@@ -181,10 +185,28 @@ h2 {
 }
 
 /* #work */
+#work h3 {
+    margin-bottom: 15px;
+    line-height: 1.2em;
+    display: inline-block;
+    border-bottom: 2px solid;
+    padding-bottom: 18px;
+    }
+
+#work hr {
+    border-width: 2px;
+    display: none;
+}
+
 #work p {
     font-size: 1.3em;
     text-align: center;
     font-style: italic;
+}
+
+#work p#endstatement {
+    margin-bottom: 50px;
+margin-top: 30px;
 }
 
 #work img {
@@ -201,6 +223,9 @@ h2 {
 
 #team h3 {
     color: white;
+    border-bottom: 2px solid;
+    display: inline-block;
+    padding-bottom: 18px;
 }
 
 #team h4 {
@@ -237,9 +262,19 @@ h2 {
     height: 500px;
 }
 
+#contact h3 {
+    text-align: left;
+    padding-bottom: 15px;
+    border-bottom: 2px solid;
+    margin-bottom: 25px;
+}
+
 #contact p {
     font-size: 1.2em;
 
+}
+input {
+    font-family: "museo-sans",sans-serif;
 }
 input[type="text"],textarea {
     width: 100%;
@@ -252,6 +287,9 @@ input[type="submit"]{
     border: 0;
     color: white;
     padding: 5px 10px;
+    margin-top: 5px;
+    height: 34px;
+    font-size: 1.3em;
 }
 
 hr {
