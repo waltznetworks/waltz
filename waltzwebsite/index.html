@@ -171,25 +171,5 @@ changing networks.</p>
     <div class="clear"></div>
 <hr/>
 
-  <script type="text/javascript">
-  // this is the id of the form
-  $("#waltzform").submit(function() {
-      $.ajax({
-             type: "GET",
-             url: "/email",
-             data: $("#waltzform").serialize(), 
-             success: function(data)
-             { 
-              if (data.status == true) {
-                $("#waltzform").html('Thank you! We\'ll be in touch soon!');
-                return false;
-              }
-              alert('Opps, there was a problem! Please email info@waltznetworks.com directly.');
-             }
-             });
-      event.preventDefault()
-      return false;
-  });
-  </script>
 </body>
 </html>
