@@ -1,0 +1,11 @@
+#header {
+  background-position: 400px;
+}
+
+#contact img.hide-on-mobile {
+  display: none;
+}
+
+#contact {
+  background-image: none;
+}
