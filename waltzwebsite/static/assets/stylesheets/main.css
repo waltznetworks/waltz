@@ -306,6 +306,18 @@ input[type="submit"]{
     background-color: #efefef;
 }
 
+.preview-page .grid-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1300px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.preview-page #nav {
+    width: 98%;
+}
+
 hr {
     border-color: #3F84BA;
     margin-bottom: 10px;
