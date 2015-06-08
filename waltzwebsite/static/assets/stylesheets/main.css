@@ -298,8 +298,12 @@ input[type="submit"]{
 #bottomnav {
     background-color: #3F84BA;
     color: white;
-    font-size: 0.9em;
+    font-size: 0.8em;
     padding: 24px
+}
+
+#preview-video {
+    background-color: #efefef;
 }
 
 hr {
