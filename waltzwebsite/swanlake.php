@@ -43,9 +43,9 @@
       <img alt="Waltz Networks" id="logo" width="170px" src="static/img/logo.png"/>
 
       <ul>
-        <li><a href="#work">What We Do</a></li>
-        <li><a href="#team">Our Team</a></li>
-        <li class="last"><a href="#contact">Contact</a></li>
+        <li><a href="/#work">What We Do</a></li>
+        <li><a href="/#team">Our Team</a></li>
+        <li class="last"><a href="/#contact">Contact</a></li>
       </ul>
     </div>
   </div>
