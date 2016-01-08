@@ -51,6 +51,7 @@
   </div>
 
 <?php
+    $TABLE_NAME = "stanford_fair";
     $db_conn = mysql_connect('waltznetworkscom.ipagemysql.com', 'architbaweja', 'lpw92513'); 
     if (!$db_conn) { 
         die('Could not connect: ' . mysql_error()); 
@@ -59,17 +60,26 @@
 
     // TODO: Basic entry validation (not null etc).
     // TODO: Find best answer
-    $result = mysql_query("SELECT * FROM stanford_fair", $db_conn);
+    $result = mysql_query("SELECT * FROM $TABLE_NAME", $db_conn);
     $total_answers = mysql_num_rows($result);
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $name = mysql_real_escape_string($_POST["name"]);
+        $email = mysql_real_escape_string($_POST["email"]);
+        $github = mysql_real_escape_string($_POST["github"]);
+        $answer = mysql_real_escape_string($_POST["answer"]);
+        $insert_sql = "INSERT INTO $TABLE_NAME (name, email, github, answer) VALUES ('$name', '$email', '$github', '$answer')";
         $best_answer = "Test Best Answer";
-        // TODO: Save answer; check for errors.
+
+        if (!mysql_query($insert_sql)) {
+            die('Error saving entry: ' . mysql_error());
+        }
 ?>
   <div id="contact">
     <div class="grid-container">
       <div class="grid-50 prefix-25">
         <h3>Thanks for your submission!</h3>
-        The current best answer is (total: <?=$total_answers?>)<br><?=$best_answer?>
+        Thank you <?=$name?> for your entry: <?=$answer?>.
       </div>
     </div>
   </div>
@@ -84,9 +94,25 @@
         <h3>Your Answer?</h3>
         <p>Total Answers: <?=$total_answers?></p>
         <form action="/swanlake.php" method="POST">
-          <div class="Form-row">
+          <div class="form-row">
             <label for="name">Name:</label>
             <input type="text" name="name">
+          </div>
+          <div class="form-row">
+            <label for="email">Email:</label>
+            <input type="text" name="email">
+          </div>
+          <div class="form-row">
+            <label for="github">Github:</label>
+            <input type="text" name="github">
+          </div>
+          <div class="form-row">
+            <label for="answer">Answer:</label>
+            <input type="text" name="answer">
+          </div>
+          <div class="form-row">
+            <label for="resume">Resume</label>
+            <input type="file">
           </div>
           <div class="form-row">
             <input type="submit" value="Send &raquo;" />
