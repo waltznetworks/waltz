@@ -64,25 +64,41 @@
     $total_answers = mysql_num_rows($result);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // Avoid SQL-injection attacks by using mysql_real_escape_string
         $name = mysql_real_escape_string($_POST["name"]);
         $email = mysql_real_escape_string($_POST["email"]);
         $github = mysql_real_escape_string($_POST["github"]);
         $answer = mysql_real_escape_string($_POST["answer"]);
-        $insert_sql = "INSERT INTO $TABLE_NAME (name, email, github, answer) VALUES ('$name', '$email', '$github', '$answer')";
+        $codesample = mysql_real_escape_string($_POST["codesample"]);
+        if ($_FILES["resume"]["size"] > 0) {
+            $resume_size = $_FILES["resume"]["size"];
+            $resume_name = $_FILES["resume"]["name"];
+            $resume_mime = $_FILES["resume"]["type"];
+
+            $tmp_file = $_FILES["resume"]["tmp_name"];
+            $fp = fopen($tmp_file, 'r');
+            $resume_blob = fread($fp, filesize($tmp_file));
+        }
+
+        $insert_sql = "INSERT INTO $TABLE_NAME (name, email, github, answer, codesample, resume_name, resume_size, resume_mime, resume_blob) VALUES ('$name', '$email', '$github', '$answer', '$codesample', '$resume_name', '$resume_size', '$resume_mime', '$resume_blob')";
+
+        // TODO: @saketh; insert verification here.
         $best_answer = "Test Best Answer";
 
         if (!mysql_query($insert_sql)) {
             die('Error saving entry: ' . mysql_error());
         }
 ?>
+
   <div id="contact">
     <div class="grid-container">
       <div class="grid-50 prefix-25">
         <h3>Thanks for your submission!</h3>
-        Thank you <?=$name?> for your entry: <?=$answer?>.
+        Thank you <?=$name?> for your entry.
       </div>
     </div>
   </div>
+
 <?php
         mysql_close($db_conn);
     } else { // Tis a GET
@@ -92,8 +108,7 @@
       <div class="grid-50 prefix-25">
 
         <h3>Your Answer?</h3>
-        <p>Total Answers: <?=$total_answers?></p>
-        <form action="/swanlake.php" method="POST">
+        <form action="/swanlake.php" method="POST" enctype="multipart/form-data">
           <div class="form-row">
             <label for="name">Name:</label>
             <input type="text" name="name">
@@ -111,7 +126,11 @@
             <input type="text" name="answer">
           </div>
           <div class="form-row">
-            <label for="resume">Resume</label>
+            <label for="codesample">Code:</label>
+            <textarea name="codesample"></textarea>
+          </div>
+          <div class="form-row">
+            <label for="resume">Resume:</label>
             <input type="file">
           </div>
           <div class="form-row">
