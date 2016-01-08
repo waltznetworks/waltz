@@ -72,24 +72,22 @@
         $codesample = mysql_real_escape_string($_POST["codesample"]);
 
         if ($_FILES["resume"]["size"] > 0) {
-            $resume_size = mysql_real_escape_string($_FILES["resume"]["size"]);
             $resume_name = mysql_real_escape_string($_FILES["resume"]["name"]);
+            $resume_size = mysql_real_escape_string($_FILES["resume"]["size"]);
             $resume_mime = mysql_real_escape_string($_FILES["resume"]["type"]);
-
-            $tmp_file = $_FILES["resume"]["tmp_name"];
-            $fp = fopen($tmp_file, 'rb');
-            $resume_blob = mysql_real_escape_string(fread($fp, filesize($tmp_file)));
-        } else {
-            echo "No files uploaded.";
         }
 
-        $insert_sql = "INSERT INTO $TABLE_NAME (name, email, github, answer, codesample, resume_name, resume_size, resume_mime, resume_blob) VALUES ('$name', '$email', '$github', '$answer', '$codesample', '$resume_name', '$resume_size', '$resume_mime', '" . $resume_blob . "')";
+        $insert_sql = "INSERT INTO $TABLE_NAME (name, email, github, answer, codesample, resume_name, resume_size, resume_mime) VALUES ('$name', '$email', '$github', '$answer', '$codesample', '$resume_name', '$resume_size', '$resume_mime')";
 
         // TODO: @saketh; insert verification here.
         $best_answer = "Test Best Answer";
 
         if (!mysql_query($insert_sql)) {
             die('Error saving entry: ' . mysql_error());
+        } else {
+            $tmp_file = $_FILES["resume"]["tmp_name"];
+            $resume_save_name = "/home/users/web/b1523/ipg.waltznetworkscom/resumes/" . mysql_insert_id() . "-" . $resume_name;
+            move_uploaded_file($tmp_file, $resume_save_name);
         }
 ?>
 
