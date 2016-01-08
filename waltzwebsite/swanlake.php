@@ -70,17 +70,20 @@
         $github = mysql_real_escape_string($_POST["github"]);
         $answer = mysql_real_escape_string($_POST["answer"]);
         $codesample = mysql_real_escape_string($_POST["codesample"]);
+
         if ($_FILES["resume"]["size"] > 0) {
-            $resume_size = $_FILES["resume"]["size"];
-            $resume_name = $_FILES["resume"]["name"];
-            $resume_mime = $_FILES["resume"]["type"];
+            $resume_size = mysql_real_escape_string($_FILES["resume"]["size"]);
+            $resume_name = mysql_real_escape_string($_FILES["resume"]["name"]);
+            $resume_mime = mysql_real_escape_string($_FILES["resume"]["type"]);
 
             $tmp_file = $_FILES["resume"]["tmp_name"];
-            $fp = fopen($tmp_file, 'r');
-            $resume_blob = fread($fp, filesize($tmp_file));
+            $fp = fopen($tmp_file, 'rb');
+            $resume_blob = mysql_real_escape_string(fread($fp, filesize($tmp_file)));
+        } else {
+            echo "No files uploaded.";
         }
 
-        $insert_sql = "INSERT INTO $TABLE_NAME (name, email, github, answer, codesample, resume_name, resume_size, resume_mime, resume_blob) VALUES ('$name', '$email', '$github', '$answer', '$codesample', '$resume_name', '$resume_size', '$resume_mime', '$resume_blob')";
+        $insert_sql = "INSERT INTO $TABLE_NAME (name, email, github, answer, codesample, resume_name, resume_size, resume_mime, resume_blob) VALUES ('$name', '$email', '$github', '$answer', '$codesample', '$resume_name', '$resume_size', '$resume_mime', '" . $resume_blob . "')";
 
         // TODO: @saketh; insert verification here.
         $best_answer = "Test Best Answer";
@@ -131,7 +134,7 @@
           </div>
           <div class="form-row">
             <label for="resume">Resume:</label>
-            <input type="file">
+            <input type="file" name="resume">
           </div>
           <div class="form-row">
             <input type="submit" value="Send &raquo;" />
