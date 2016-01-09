@@ -91,7 +91,7 @@
         }
 ?>
 
-  <div id="contact">
+  <div>
     <div class="grid-container">
       <div class="grid-50 prefix-25">
         <h3>Thanks for your submission!</h3>
@@ -104,11 +104,17 @@
         mysql_close($db_conn);
     } else { // Tis a GET
 ?>
-  <div id="contact">
+  <div>
     <div class="grid-container">
       <div class="grid-50 prefix-25">
-
-        <h3>Your Answer?</h3>
+        <h4>Congratulations! Just one more puzzle...</h4>
+         <div>
+           A "happy" sequence of integers is one in which, in every pair of adjacent elements, one is a divisor of the other. Drawing from the numbers 1, 2, ..., 200 without repetition, create the longest happy sequence you can.
+        </div>
+        <div style="margin-top: 10px;">
+          We will be giving gift cards for $250, $150 and $100 for the three longest chains!
+        </div>
+        <h4 style="margin-bottom: 10px;">Your Answer?</h4>
         <form action="/swanlake.php" method="POST" enctype="multipart/form-data">
           <div class="form-row">
             <label for="name">Name:</label>
@@ -130,11 +136,11 @@
             <label for="codesample">Code:</label>
             <textarea name="codesample"></textarea>
           </div>
-          <div class="form-row">
+          <div class="form-row" style="margin-top: 9px;">
             <label for="resume">Resume:</label>
             <input type="file" name="resume">
           </div>
-          <div class="form-row">
+          <div class="form-row" style="margin-top: 10px;margin-bottom: 20px;">
             <input type="submit" value="Send &raquo;" />
           </div>
         </form>
