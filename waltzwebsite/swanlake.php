@@ -1,4 +1,7 @@
 <?php
+        $TOP_N_ANSWERS = 3;
+        $TABLE_NAME = "stanford_fair";
+
 	function score($answer) {
 		$sequence = array_map('intval', explode(',', $answer));
 		$length = count($sequence);
@@ -82,7 +85,6 @@
   </div>
 
 <?php
-    $TABLE_NAME = "stanford_fair";
     $db_conn = mysql_connect('waltznetworkscom.ipagemysql.com', 'architbaweja', 'lpw92513'); 
     if (!$db_conn) { 
         die('Could not connect: ' . mysql_error()); 
@@ -131,7 +133,13 @@
 <?php
         mysql_close($db_conn);
     } else { // Tis a GET
+      $result = mysql_query("SELECT score FROM $TABLE_NAME ORDER BY score DESC LIMIT $TOP_N_ANSWERS");
+      $best_answers = array();
+      while ($row = mysql_fetch_array($result)) {
+          $best_answers[] = $row["score"];
+      }
 ?>
+
   <div>
     <div class="grid-container">
       <div class="grid-50 prefix-25">
@@ -141,6 +149,9 @@
         </div>
         <div style="margin-top: 10px;">
           We will be giving Visa Gift Cards for $250, $150 and $100 for the three longest chains! Please submit your answers by next Friday, January 22, to be considered.
+        </div>
+        <div>
+          Current best answer is: <?php echo implode(",", $best_answers); ?>
         </div>
         <h4 style="margin-bottom: 10px;">Your Answer?</h4>
         <form method="POST" enctype="multipart/form-data">
