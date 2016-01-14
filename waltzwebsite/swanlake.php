@@ -1,3 +1,34 @@
+<?php
+	function score($answer) {
+		$sequence = array_map('intval', explode(',', $answer));
+		$length = count($sequence);
+
+		$used = array_pad(array(), 201, false);
+
+		for ($i = 0; $i < $length; $i++) {
+			$val = $sequence[$i];
+
+			if ($val < 1) return 0;
+			if ($val > 200) return 0;
+			if ($used[$val]) return 0;
+
+			$used[$val] = true;
+		}
+
+		for ($i = 0; $i < $length - 1; $i++) {
+			$x = $sequence[$i];
+			$y = $sequence[$i + 1];
+
+			if ($x % $y == 0) continue;
+			if ($y % $x == 0) continue;
+
+			return 0;
+		}
+
+		return $length;
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,6 +100,7 @@
         $email = mysql_real_escape_string($_POST["email"]);
         $github = mysql_real_escape_string($_POST["github"]);
         $answer = mysql_real_escape_string($_POST["answer"]);
+        $score = score($_POST["answer"]);
         $codesample = mysql_real_escape_string($_POST["codesample"]);
 
         if ($_FILES["resume"]["size"] > 0) {
@@ -77,10 +109,7 @@
             $resume_mime = mysql_real_escape_string($_FILES["resume"]["type"]);
         }
 
-        $insert_sql = "INSERT INTO $TABLE_NAME (name, email, github, answer, codesample, resume_name, resume_size, resume_mime) VALUES ('$name', '$email', '$github', '$answer', '$codesample', '$resume_name', '$resume_size', '$resume_mime')";
-
-        // TODO: @saketh; insert verification here.
-        $best_answer = "Test Best Answer";
+        $insert_sql = "INSERT INTO $TABLE_NAME (name, email, github, answer, codesample, resume_name, resume_size, resume_mime, score) VALUES ('$name', '$email', '$github', '$answer', '$codesample', '$resume_name', '$resume_size', '$resume_mime', $score)";
 
         if (!mysql_query($insert_sql)) {
             die('Error saving entry: ' . mysql_error());
@@ -95,7 +124,6 @@
     <div class="grid-container">
       <div class="grid-50 prefix-25">
         <h3>Thanks for your submission!</h3>
-        Thank you <?=$name?> for your entry.
       </div>
     </div>
   </div>
@@ -115,7 +143,7 @@
           We will be giving Visa Gift Cards for $250, $150 and $100 for the three longest chains! Please submit your answers by next Friday, January 22, to be considered.
         </div>
         <h4 style="margin-bottom: 10px;">Your Answer?</h4>
-        <form action="/swanlake.php" method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data">
           <div class="form-row">
             <label for="name">Name:</label>
             <input type="text" name="name">
