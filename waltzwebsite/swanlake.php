@@ -150,8 +150,8 @@
         <div style="margin-top: 10px;">
           We will be giving Visa Gift Cards for $250, $150 and $100 for the three longest chains! Please submit your answers by next Friday, January 22, to be considered.
         </div>
-        <div>
-          Current best answer is: <?php echo implode(",", $best_answers); ?>
+        <div style="margin-top: 10px;">
+          Current top answers are: <?php echo implode(",", $best_answers); ?>
         </div>
         <h4 style="margin-bottom: 10px;">Your Answer?</h4>
         <form method="POST" enctype="multipart/form-data">
