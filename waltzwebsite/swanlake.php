@@ -145,7 +145,7 @@
       <div class="grid-50 prefix-25">
         <h4>Congratulations! Just one more puzzle...</h4>
          <div>
-           A "happy" sequence of integers is one in which, in every pair of adjacent elements, one is a divisor of the other. Drawing from the numbers 1, 2, ..., 200 without repetition, create the longest happy sequence you can.
+     A "happy" sequence of integers is one in which, in every pair of adjacent elements, one is a divisor of the other. Drawing from the numbers 1, 2, ..., 200 without repetition, create the longest happy sequence you can. When submitting, you should format your answer as a comma separated list of integers.
         </div>
         <div style="margin-top: 10px;">
           We will be giving Visa Gift Cards for $250, $150 and $100 for the three longest chains! Please submit your answers by next Friday, January 22, to be considered.
