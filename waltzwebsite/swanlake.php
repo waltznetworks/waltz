@@ -112,7 +112,7 @@
            A "happy" sequence of integers is one in which, in every pair of adjacent elements, one is a divisor of the other. Drawing from the numbers 1, 2, ..., 200 without repetition, create the longest happy sequence you can.
         </div>
         <div style="margin-top: 10px;">
-          We will be giving Visa Gift Cards for $250, $150 and $100 for the three longest chains!
+          We will be giving Visa Gift Cards for $250, $150 and $100 for the three longest chains! Please submit your answers by next Friday, January 22, to be considered.
         </div>
         <h4 style="margin-bottom: 10px;">Your Answer?</h4>
         <form action="/swanlake.php" method="POST" enctype="multipart/form-data">
